@@ -9,5 +9,6 @@ class User < ApplicationRecord
          validates :last_name_kana, presence: true, format: { with: /\A[ァ-ヶー]+\z/, message: 'を入力してください' }
          validates :first_name_kana, presence: true, format: { with: /\A[ァ-ヶー]+\z/, message: 'を入力してください' }
 
+  validates :nickname, presence: true
 
 end
