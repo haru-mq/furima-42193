@@ -10,5 +10,7 @@ class User < ApplicationRecord
          validates :first_name_kana, presence: true, format: { with: /\A[ァ-ヶー]+\z/, message: 'を入力してください' }
 
   validates :nickname, presence: true
+  validates :birthday, presence: true
+  
 
 end
