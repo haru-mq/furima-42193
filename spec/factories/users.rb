@@ -1,4 +1,7 @@
 FactoryBot.define do
+
+  digit_count = rand(4..128)
+
   factory :user do
     transient do
       gimei_name { Gimei.name }
@@ -6,7 +9,7 @@ FactoryBot.define do
 
     nickname              {Faker::Name.initials(number: 2)}
     email                 {Faker::Internet.email}
-    password              {Faker::Internet.password(min_length: 6)}
+    password              {Faker::Alphanumeric.alpha(number: digit_count) + "1a"}
     password_confirmation {password}
     first_name            {gimei_name.first.kanji}
     last_name             {gimei_name.last.kanji}
