@@ -12,6 +12,6 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   validates :birthday, presence: true
 
-  validates :password, presence: true, format: { with: /\A(?=.*[a-z])(?=.*\d)[a-z0-9]+\z/, message: 'を入力してください' }
+  validates :password, format: { with: /\A(?=.*[a-z])(?=.*\d)[a-z0-9]+\z/, message: 'を入力してください' }
 
 end
