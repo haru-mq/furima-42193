@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'frimas/index'
   devise_for :users
 
-  root to: "frimas#index"
+  root 'items#index'
+
+  resources :items, only: :index
 end
