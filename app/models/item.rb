@@ -8,6 +8,8 @@ class Item < ApplicationRecord
 
   belong_to :user
 
+  has_one_attached :image
+
   validates :item_name,         presence: true
   validates :item_description,  presence: true
   validates :category_id,       numericality{ other_than: 1 }
