@@ -1,10 +1,19 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: :new
+  before_action :authenticate_user!, only: :new, :create
 
   def index
   end
 
   def new
+    @item = Item.new
+  end
+
+  def create
+    if Item.create(item_params)
+      redirect_to '/'
+    else
+      render :new, status :unprocessable_entity
+    end
   end
 
   private
