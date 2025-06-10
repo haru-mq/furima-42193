@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: :new, :create
+  before_action :authenticate_user!, only: [:new, :create]
 
   def index
   end
@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
     if Item.create(item_params)
       redirect_to '/'
     else
-      render :new, status :unprocessable_entity
+      render :new, status: unprocessable_entity
     end
   end
 
