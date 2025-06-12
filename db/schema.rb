@@ -48,10 +48,10 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_09_113153) do
     t.integer "prefecture_id", null: false
     t.integer "ship_date_id", null: false
     t.integer "price", null: false
-    t.bigint "user_id_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id_id"], name: "index_items_on_user_id_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "users", charset: "utf8mb3", force: :cascade do |t|
