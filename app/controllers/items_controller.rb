@@ -2,7 +2,6 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :set_item, only: [:show, :edit, :update]
   before_action :redirect_if_not_owner, only: [:edit, :update]
-  before_action :item_find, only: [:show, :edit, :update]
 
   def index
     @items = Item.order(created_at: :desc)
@@ -50,9 +49,4 @@ class ItemsController < ApplicationController
       redirect_to '/'
     end
   end
-
-  def item_find
-    @item = Item.find(params[:id])
-  end
-
 end
