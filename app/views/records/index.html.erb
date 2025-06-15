@@ -14,7 +14,7 @@
         </h2>
         <div class='buy-item-price'>
           <p class='item-price-text'>¥<%= @item.price %></p>
-          <p class='item-price-sub-text'><%= @item.fee %></p>
+          <p class='item-price-sub-text'><%= @item.fee.name %></p>
         </div>
       </div>
     </div>
@@ -31,7 +31,7 @@
     </div>
     <%# /支払額の表示 %>
 
-    <%= form_with id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+    <%= form_with model:@record_address, url: item_records_path(@item), id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
@@ -79,7 +79,7 @@
           <label class="form-text">郵便番号</label>
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_field @address.post_number, class:"input-default", id:"postal-code", placeholder:"例）123-4567", maxlength:"8" %>
+        <%= f.text_field :post_number, class:"input-default", id:"postal-code", placeholder:"例）123-4567", maxlength:"8" %>
       </div>
       <div class="form-group">
         <div class='form-text-wrap'>
