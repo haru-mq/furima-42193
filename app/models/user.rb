@@ -14,4 +14,7 @@ class User < ApplicationRecord
 
   validates :password, format: { with: /\A(?=.*[a-z])(?=.*\d)[a-z0-9]+\z/, message: 'を入力してください' }
 
+  has_many :items
+  has_many :records
+
 end
