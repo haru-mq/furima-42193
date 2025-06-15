@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   def index
+    gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
     @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new
   end
@@ -12,6 +13,7 @@ class OrdersController < ApplicationController
       @order_address.save
       redirect_to '/'
     else
+      gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
       render :index
     end
   end
@@ -23,7 +25,7 @@ class OrdersController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = "sk_test_7fadc983a2aa1211b4f13659"
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
       amount:   @item.price,
       card:     set_params[:token],
