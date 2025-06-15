@@ -7,6 +7,7 @@ FactoryBot.define do
     house_number    {Faker::Address.building_number()}
     building        {"#{Faker::Name.last_name()}ビル"}
     phone_number    {Faker::Number.number(digits: 11)}
+    token           {"tkn_#{Faker::Alphanumeric.alpha(number: 28)}"}
 
     association :user
     association :item

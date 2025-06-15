@@ -10,7 +10,7 @@ class OrderAddress
   validates :city,            presence: true
   validates :house_number,    presence: true
   validates :phone_number,    presence: true, format: { with: /\A[0-9]{10,11}\z/, message: 'is invalid. Input only numbers.'}
-  # validates :token,           presence: true
+  validates :token,           presence: true
 
   def save
     record = Record.create(user_id: user_id, item_id: item_id)
