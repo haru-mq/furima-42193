@@ -12,7 +12,7 @@ class RecordsController < ApplicationController
       redirect_to '/'
     else
       @item = Item.find(params[:item_id])
-      render :index, status: :unprocessable_entity
+      render :index
     end
   end
 
