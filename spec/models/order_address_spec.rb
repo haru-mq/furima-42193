@@ -29,7 +29,7 @@ RSpec.describe OrderAddress, type: :model do
       it '郵便番号は「3桁ハイフン4桁」の半角文字列で入力されていない場合は購入できない' do
         @order_address.post_number = '1234567'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Post number is invalid")
+        expect(@order_address.errors.full_messages).to include("Post number is invalid. Input correctly.")
       end
       it '都道府県が選択されていない場合は購入できない' do
         @order_address.prefecture_id = 1
