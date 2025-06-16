@@ -24,6 +24,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    if Record.exists?(item_id: @item.id )
+      redirect_to '/'
+    end
   end
 
   def update
